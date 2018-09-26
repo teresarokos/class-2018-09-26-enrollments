@@ -7,5 +7,19 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+```{r}
+x <- read_rds("enrollment.rds")
+summary(x)
+head(x)
+glimpse(x)
+x
+
+x %>% 
+  select(course_name, u_grad, grad, non_degree, total) %>% 
+  arrange(desc(total))
+
 ```
 
